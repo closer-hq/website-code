@@ -14,10 +14,17 @@ $(document).ready(function() {
             console.error("Analytics button has no name");
             return;
         }
+
         let props = {
             "name": btnName,
             "path": window.location.pathname,
         };
+        $.each(this.attributes, function(_, attr) {
+            if (attr.name.startsWith('data-analytics-prop-')) {
+                let key = attr.name.split('data-analytics-prop-')[1];
+                props[key] = attr.value;
+            }
+        });
         analytics.track("Button Click", props);
     });
 });

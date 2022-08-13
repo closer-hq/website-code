@@ -34,8 +34,12 @@ $(document).ready(function() {
         onSubmit: function() {
             console.log("form submitted")
         }
-    })
-    document.querySelector('.lead_form_bottom').onClick = open;
+    });
+    $(".lead_form_bottom").click(function() {
+        $('.modal-wrapper').css({'opacity': '1',
+            'display': 'block'});
+        open();
+    });
 
 });
 

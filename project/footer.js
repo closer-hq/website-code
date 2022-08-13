@@ -29,8 +29,14 @@ $(document).ready(function() {
         analytics.track("Button Click", props);
     });
 
-    const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe')
-    document.querySelector('#lead_form_bottom').onClick = open;
+    const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe', {
+        container: document.querySelector('#modal-form'),
+        onSubmit: function() {
+            console.log("form submitted")
+        }
+    })
+    document.querySelector('.lead_form_bottom').onClick = open;
+
 });
 
 (function (d, u, h, s) {

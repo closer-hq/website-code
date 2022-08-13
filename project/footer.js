@@ -33,6 +33,10 @@ $(document).ready(function() {
         container: document.querySelector('#modal-form'),
         onSubmit: function() {
             console.log("form submitted")
+        },
+        onClose: function() {
+            $('.modal-wrapper').css({'opacity': '0',
+                'display': 'none'});
         }
     });
     $(".lead_form_bottom").click(function() {

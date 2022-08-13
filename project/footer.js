@@ -32,7 +32,16 @@ $(document).ready(function() {
     const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe', {
         container: document.querySelector('#modal-form'),
         onSubmit: function() {
-            console.log("form submitted")
+            let props = {
+                "type": "lead_form",
+            }
+            let params = new URLSearchParams(window.location.search);
+            for (const [k, v] of params.entries()) {
+                if (k.startsWith('utm_')) {
+                    dict[k] = v;
+                }
+            }
+            analytics.track("Form Submit", props)
         },
         onClose: function() {
             $('.modal-wrapper').css({'opacity': '0',

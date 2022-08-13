@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
 
     const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe')
-    $('#lead_form_bottom').click(open);
+    document.querySelector('#lead_form_bottom').onClick = open;
 });
 
 (function (d, u, h, s) {

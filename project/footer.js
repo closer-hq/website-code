@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
     console.log('document Read()');
-    const { openPop, closePop, togglePop, refreshPop } = window.tf.createPopup('BWrTaXCe', {
+    const tfPopover = window.tf.createPopover('BWrTaXCe', {
         container: document.querySelector('#modal-form'),
         onSubmit: function() {
             let props = {
@@ -51,7 +51,7 @@ $(document).ready(function() {
     function openLeadForm() {
         $('.modal-wrapper').css({'opacity': '1',
             'display': 'block'});
-        open();
+        tfPopover.open();
     }
     $('#lead_btn_header').click(function() {
         openLeadForm();

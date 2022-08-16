@@ -5,7 +5,6 @@
 }}();
 
 $(document).ready(function() {
-    console.log('document Read()');
     const tfPopover = window.tf.createPopup('BWrTaXCe', {
         container: document.querySelector('#modal-form'),
         onSubmit: function() {

@@ -7,9 +7,10 @@
 $(document).ready(function() {
     const tfPopover = window.tf.createPopup('BWrTaXCe', {
         container: document.querySelector('#modal-form'),
-        onSubmit: function() {
+        onSubmit: (event) => {
             let props = {
                 "type": "lead_form",
+                "tf_response_id": event.responseId
             }
             let params = new URLSearchParams(window.location.search);
             for (const [k, v] of params.entries()) {

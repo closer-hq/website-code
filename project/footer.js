@@ -4,10 +4,9 @@
     // TODO track "day of week" and "hour of day" for all events and pages
 }}();
 
-
 $(document).ready(function() {
     console.log('document Read()');
-    const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe', {
+    const { openPop, closePop, togglePop, refreshPop } = window.tf.createPopup('BWrTaXCe', {
         container: document.querySelector('#modal-form'),
         onSubmit: function() {
             let props = {
@@ -49,10 +48,16 @@ $(document).ready(function() {
         });
         analytics.track("Button Click", props);
     });
-    $(".lead_form_bottom").click(function() {
+    function openLeadForm() {
         $('.modal-wrapper').css({'opacity': '1',
             'display': 'block'});
         open();
+    }
+    $('#lead_btn_header').click(function() {
+        openLeadForm();
+    });
+    $(".lead_form_bottom").click(function() {
+        openLeadForm()
     });
 
 });

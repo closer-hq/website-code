@@ -4,27 +4,29 @@
     // TODO track "day of week" and "hour of day" for all events and pages
 }}();
 
-const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe', {
-    container: document.querySelector('#modal-form'),
-    onSubmit: function() {
-        let props = {
-            "type": "lead_form",
-        }
-        let params = new URLSearchParams(window.location.search);
-        for (const [k, v] of params.entries()) {
-            if (k.startsWith('utm_')) {
-                dict[k] = v;
-            }
-        }
-        analytics.track("Form Submit", props)
-    },
-    onClose: function() {
-        $('.modal-wrapper').css({'opacity': '0',
-            'display': 'none'});
-    }
-});
 
 $(document).ready(function() {
+    console.log('document Read()');
+    const { open, close, toggle, refresh } = window.tf.createPopup('BWrTaXCe', {
+        container: document.querySelector('#modal-form'),
+        onSubmit: function() {
+            let props = {
+                "type": "lead_form",
+            }
+            let params = new URLSearchParams(window.location.search);
+            for (const [k, v] of params.entries()) {
+                if (k.startsWith('utm_')) {
+                    dict[k] = v;
+                }
+            }
+            analytics.track("Form Submit", props)
+        },
+        onClose: function() {
+            $('.modal-wrapper').css({'opacity': '0',
+                'display': 'none'});
+        }
+    });
+
     // Tracking button press in analytics
     $(".analytics-button").click(function() {
         // requires a-ref element with the class .button

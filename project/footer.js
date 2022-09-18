@@ -10,7 +10,9 @@ $(document).ready(function() {
         onSubmit: (event) => {
             let props = {
                 "type": "lead_form",
-                "tf_response_id": event.responseId
+                "form_id": "BWrTaXCe",
+                "tf_response_id": event.responseId,
+                "path": window.location.pathname
             }
             let params = new URLSearchParams(window.location.search);
             for (const [k, v] of params.entries()) {

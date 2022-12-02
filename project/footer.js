@@ -24,6 +24,7 @@ $(document).ready(function() {
             }
             analytics.track("Form Submit", props);
             window.lintrk('track', { conversion_id: 10237700 });
+            rdt('track', 'Lead', { "currency": "USD", "value": 100 });
         },
         onClose: function() {
             $('.modal-wrapper').css({'opacity': '0',

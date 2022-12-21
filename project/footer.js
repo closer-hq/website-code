@@ -26,6 +26,11 @@ $(document).ready(function() {
                 let key = attr.name.split('data-analytics-prop-')[1];
                 props[key] = attr.value;
             }
+            
+            if (attr.name.startsWith('data-linkedin-track-conversion')) {
+                window.lintrk('track', { conversion_id: attr.value });
+            }
+                
         });
         analytics.track("Button Click", props);
     });

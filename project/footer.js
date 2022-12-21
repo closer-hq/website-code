@@ -28,7 +28,9 @@ $(document).ready(function() {
             }
             
             if (attr.name.startsWith('data-linkedin-track-conversion')) {
-                window.lintrk('track', { conversion_id: attr.value });
+                if (attr.value != null) {
+                    window.lintrk('track', { conversion_id: attr.value });
+                }
             }
                 
         });

@@ -7,31 +7,6 @@
 }}();
 
 $(document).ready(function() {
-    const tfPopover = window.tf.createPopup('BWrTaXCe', {
-        container: document.querySelector('#modal-form'),
-        onSubmit: (event) => {
-            let props = {
-                "type": "lead_form",
-                "form_id": "BWrTaXCe",
-                "tf_response_id": event.responseId,
-                "path": window.location.pathname
-            }
-            let params = new URLSearchParams(window.location.search);
-            for (const [k, v] of params.entries()) {
-                if (k.startsWith('utm_')) {
-                    dict[k] = v;
-                }
-            }
-            analytics.track("Form Submit", props);
-            window.lintrk('track', { conversion_id: 10237700 });
-            rdt('track', 'Lead', { "currency": "USD", "value": 100 });
-        },
-        onClose: function() {
-            $('.modal-wrapper').css({'opacity': '0',
-                'display': 'none'});
-        }
-    });
-
     // Tracking button press in analytics
     $(".analytics-button").click(function() {
         // requires a-ref element with the class .button

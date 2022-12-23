@@ -8,7 +8,7 @@
 
 $(document).ready(function() {
     // Tracking button press in analytics
-    $(".analytics-button").click(function() {
+    $("button").click(function() {
         // requires a-ref element with the class .button
         // and the attribute "data-name" to track.
         let btnName = $(this).attr('data-name');
@@ -20,6 +20,8 @@ $(document).ready(function() {
         let props = {
             "name": btnName,
             "path": window.location.pathname,
+            "elementId": $(this).attr('id'),
+            "elementText": $(this).text()
         };
         $.each(this.attributes, function(_, attr) {
             if (attr.name.startsWith('data-analytics-prop-')) {

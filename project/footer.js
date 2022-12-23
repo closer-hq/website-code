@@ -8,8 +8,7 @@
 
 $(document).ready(function() {
     // Tracking button press in analytics
-    $("button").click(function() {
-        // requires a-ref element with the class .button
+    $("a.button").click(function() {
         // and the attribute "data-name" to track.
         let btnName = $(this).attr('data-name');
         if (btnName == null) {
